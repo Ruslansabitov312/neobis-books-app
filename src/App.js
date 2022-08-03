@@ -10,7 +10,7 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-          <Route path='/update-book' element={<UpdateBook />} />
+          <Route path='/update-book/:id' element={<UpdateBook />} />
           <Route path='/create-book' element={<CreateBook />} />
           <Route exact path='/' element={<BooksList />} />
         </Routes>
