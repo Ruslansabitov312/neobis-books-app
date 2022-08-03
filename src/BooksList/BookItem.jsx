@@ -7,7 +7,8 @@ import {
 import { Link } from 'react-router-dom'
 import { useMutation, useQueryClient } from 'react-query'
 import { removeBook } from '../api'
-import { ThreeDots } from 'react-loader-spinner'
+// import { ThreeDots } from 'react-loader-spinner'
+import Spinner from '../Spinner'
 
 export const BookItem = ({ author, title, id }) => {
   const queryClient = useQueryClient()
@@ -28,7 +29,8 @@ export const BookItem = ({ author, title, id }) => {
 
       <Button cursor='pointer' ml={5} onClick={remove}>
         {isLoading ? (
-          <ThreeDots color='#F08080' height={15} width={57} />
+          // <ThreeDots color='#F08080' height={15} width={57} />
+          <Spinner />
         ) : (
           'remove'
         )}
