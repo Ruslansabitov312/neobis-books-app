@@ -2,7 +2,7 @@ import { Container } from '../shared/Container'
 import { Flex } from 'rebass/styled-components'
 import { useQuery } from 'react-query'
 import { TailSpin } from 'react-loader-spinner'
-import getAllBooks from '../api'
+import { getAllBooks } from '../api'
 import { BookItem } from './BookItem'
 
 export const BooksList = () => {
