@@ -9,15 +9,15 @@ export const NavBar = () => {
       <Container>
         <Flex px={2} width='100%' alignItems='center'>
           <Image size={20} src={logo} mr={2} />
-          <Link to='/'>
-            <StyledLink variant={'nav'} color='white'>React Query CRUD1</StyledLink>
-          </Link>
+          <StyledLink as={Link} variant='nav' to='/'>
+            React Query CRUD
+          </StyledLink>
 
           <Box mx='auto' my={4} />
 
-          <Link to='/create-book'>
-            <StyledLink variant={'nav'} color='white'>+ Add new book</StyledLink>
-          </Link>
+          <StyledLink as={Link} variant='nav' to='/create-book'>
+            + Add new book
+          </StyledLink>
         </Flex>
       </Container>
     </Flex>

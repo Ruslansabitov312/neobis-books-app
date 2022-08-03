@@ -9,10 +9,6 @@ import { Link } from 'react-router-dom'
 export const BookItem = ({ author, title, id }) => {
   return (
     <Flex p={3} width='100%' alignItems='center'>
-      {/* <Link to={`/update-book/${id}`}>
-        <StyledLink variant={'nav'}>{title}</StyledLink>
-      </Link> */}
-
       <StyledLink 
         as={Link}
         variant='nav' 
