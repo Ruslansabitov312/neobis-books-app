@@ -53,13 +53,19 @@ export const removeBook = async (id) => {
   }
 }
 
-// export const removeBook = async (id) => {
-//   const response = await fetch(`${process.env.REACT_APP_API_SERVER}/books/${id}`, {
-//     method: 'DELETE'
-//   })
+// Создать книгу
+export const createBook = async (data) => {
+  const response = await fetch(`${process.env.REACT_APP_API_SERVER}/books/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
 
-//   if(!response.ok) {
-//     throw new Error(response.json().message)
-//   }
-//   return true
-// }
+  if (!response.ok) {
+    throw new Error(response.json().message)
+  }
+
+  return response.json()
+}

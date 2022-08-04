@@ -16,16 +16,16 @@ export const BookForm = ({ defaultValues, onFormSubmit, isLoading }) => {
         <Label htmlFor='title' mb={1}>
           Title
         </Label>
-        <Input ref={register} id='title' name='title' type='text' />
+        <Input ref={register} id='title' name='title' type='text' required />
       </Box>
 
       <Box sx={{ marginBottom: 3 }}>
         <Label htmlFor='author' mb={1}>
           Author
         </Label>
-        <Input ref={register} id='author' name='author' type='text' />
+        <Input ref={register} id='author' name='author' type='text' required />
       </Box>
-      <Button>{isLoading ? <Spinner /> : 'Update'}</Button>
+      <Button>{isLoading ? <Spinner /> : 'Submit'}</Button>
     </form>
   )
 }
