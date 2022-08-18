@@ -14,19 +14,31 @@ export const getAllBooks = async () => {
 }
 
 // Обновить книгу
-export const updateBook = async ({ id, ...data }) => {
-  const response = await fetch(
-    `${process.env.REACT_APP_API_SERVER}/books/${id}`,
-    {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    }
-  )
+// export const updateBook = async ({ id, ...data }) => {
+//   const response = await fetch(
+//     `${process.env.REACT_APP_API_SERVER}/books/${id}`,
+//     {
+//       method: 'PUT',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(data),
+//     }
+//   )
 
-  return response.json()
+//   return response.json()
+// }
+
+export const updateBook = async ({ id, ...data }) => {
+  try {
+    const response = await axios.put(
+      `${process.env.REACT_APP_API_SERVER}/books/${id}`,
+      data
+    )
+    return response.data
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 // Получить книгу по айди
@@ -54,18 +66,30 @@ export const removeBook = async (id) => {
 }
 
 // Создать книгу
+// export const createBook = async (data) => {
+//   const response = await fetch(`${process.env.REACT_APP_API_SERVER}/books/`, {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(data),
+//   })
+
+//   if (!response.ok) {
+//     throw new Error(response.json().message)
+//   }
+
+//   return response.json()
+// }
+
 export const createBook = async (data) => {
-  const response = await fetch(`${process.env.REACT_APP_API_SERVER}/books/`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  })
-
-  if (!response.ok) {
-    throw new Error(response.json().message)
+  try {
+    const response = await axios.post(
+      `${process.env.REACT_APP_API_SERVER}/books/`,
+      data
+    )
+    return response.data
+  } catch (error) {
+    console.error(error)
   }
-
-  return response.json()
 }
